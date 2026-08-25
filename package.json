@@ -1,0 +1,58 @@
+{
+  "name": "ai-powered-realtime-email-management-infrastructure",
+  "version": "2.0.0",
+  "description": "AI-Powered Real-Time Email Management Infrastructure",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:worker": "cd backend && npm run worker",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:worker\" \"npm run dev:frontend\"",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test": "cd backend && npm test",
+    "typecheck": "cd backend && npx tsc --noEmit && cd ../frontend && npx tsc --noEmit",
+    "lint": "cd backend && npx eslint src --ext .ts && cd ../frontend && npm run lint",
+    "evaluate:classification": "cd backend && npm run evaluate:classification",
+    "evaluate:rag": "cd backend && npm run evaluate:rag",
+    "evaluate:productivity": "cd backend && npm run evaluate:productivity",
+    "benchmark:api": "cd backend && npm run benchmark:api",
+    "benchmark:search": "cd backend && npm run benchmark:search",
+    "benchmark:imap": "cd backend && npm run benchmark:imap",
+    "benchmark:ai": "cd backend && npm run benchmark:ai",
+    "benchmark:rag": "cd backend && npm run benchmark:rag",
+    "benchmark:load": "cd backend && npm run benchmark:load",
+    "docker:up": "docker-compose up -d --build",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": [
+    "email",
+    "imap",
+    "ai",
+    "gemini",
+    "rag",
+    "qdrant",
+    "elasticsearch",
+    "bullmq",
+    "redis"
+  ],
+  "author": "Engineering Architecture Team",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^9.5.0",
+    "@google/generative-ai": "^0.24.1",
+    "@qdrant/js-client-rest": "^1.19.0",
+    "axios": "^1.19.0",
+    "bullmq": "^6.2.0",
+    "dotenv": "^17.4.2",
+    "ioredis": "^6.0.0",
+    "pino": "^10.3.1",
+    "pino-pretty": "^13.1.3"
+  }
+}

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment
+.env
+
+# Build
+dist/
+*.js
+*.js.map
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/

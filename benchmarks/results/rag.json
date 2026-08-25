@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-08-24T16:23:53.845Z",
+  "benchmark": "RAG Pipeline Benchmark",
+  "totalPipelineLatencyMs": 352,
+  "vectorEmbeddingLatencyMs": 190,
+  "qdrantSearchLatencyMs": 5,
+  "geminiGenerationLatencyMs": 157,
+  "isRagGrounded": false
+}

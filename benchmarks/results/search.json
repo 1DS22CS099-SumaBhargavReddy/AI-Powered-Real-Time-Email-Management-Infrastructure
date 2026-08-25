@@ -1,0 +1,6 @@
+{
+  "timestamp": "2026-08-24T16:23:26.211Z",
+  "benchmark": "Search Performance Benchmark",
+  "elasticsearchLatencyMs": 9189,
+  "qdrantVectorLatencyMs": 7
+}

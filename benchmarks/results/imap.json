@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-08-24T16:23:32.317Z",
+  "benchmark": "IMAP MIME Parser Benchmark",
+  "totalMessagesParsed": 500,
+  "totalTimeMs": 189,
+  "throughputMessagesPerSec": 2645.5
+}

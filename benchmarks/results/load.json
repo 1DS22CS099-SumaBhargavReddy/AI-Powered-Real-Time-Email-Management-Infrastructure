@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-08-24T16:38:54.335Z",
+  "benchmark": "k6 System Capacity & Load Benchmark",
+  "targetVUs": 50,
+  "durationSeconds": 30,
+  "metrics": {
+    "requestsPerSecond": 142.5,
+    "httpLatencyP50Ms": 14.2,
+    "httpLatencyP95Ms": 42.8,
+    "httpLatencyP99Ms": 88.1,
+    "errorRatePercentage": 0,
+    "totalSuccessfulRequests": 4275
+  }
+}

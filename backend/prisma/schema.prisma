@@ -1,0 +1,258 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum SyncStatus {
+  DISCONNECTED
+  CONNECTING
+  CONNECTED
+  SYNCING
+  IDLE
+  RECONNECTING
+  FAILED
+  STOPPED
+}
+
+enum Category {
+  INTERESTED
+  MEETING_BOOKED
+  NOT_INTERESTED
+  SPAM
+  OUT_OF_OFFICE
+  UNCATEGORIZED
+}
+
+enum RecipientType {
+  TO
+  CC
+  BCC
+}
+
+enum JobStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String?
+  provider  String   @default("credentials")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts  EmailAccount[]
+  emails    Email[]
+  labels    EmailLabel[]
+  auditLogs AuditLog[]
+
+  @@index([email])
+}
+
+model EmailAccount {
+  id                String     @id @default(cuid())
+  userId            String
+  user              User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  email             String
+  imapHost          String
+  imapPort          Int
+  imapUser          String?
+  encryptedPassword String
+  syncStatus        SyncStatus @default(DISCONNECTED)
+  lastSyncedAt      DateTime?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  mailboxes  Mailbox[]
+  emails     Email[]
+  syncStates SyncState[]
+
+  @@unique([userId, email])
+  @@index([userId])
+}
+
+model Mailbox {
+  id             String    @id @default(cuid())
+  accountId      String
+  account        EmailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  name           String
+  path           String
+  uidValidity    BigInt?
+  uidNext        BigInt?
+  totalMessages  Int       @default(0)
+  unreadMessages Int       @default(0)
+  lastSyncedAt   DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  emails Email[]
+
+  @@unique([accountId, path])
+  @@index([accountId])
+}
+
+model Email {
+  id              String        @id @default(cuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accountId       String
+  account         EmailAccount  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  mailboxId       String?
+  mailbox         Mailbox?      @relation(fields: [mailboxId], references: [id], onDelete: SetNull)
+  messageId       String
+  threadId        String?
+  uid             BigInt?
+  sender          String
+  senderEmail     String?
+  receiver        String
+  receiverEmail   String?
+  subject         String
+  bodyText        String        @db.Text
+  bodyHtml        String?       @db.Text
+  snippet         String?
+  category        Category      @default(UNCATEGORIZED)
+  confidenceScore Float         @default(0.0)
+  isRead          Boolean       @default(false)
+  isStarred       Boolean       @default(false)
+  isArchived      Boolean       @default(false)
+  summary         String?       @db.Text
+  embeddingId     String?
+  receivedAt      DateTime
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  recipients      EmailRecipient[]
+  attachments     EmailAttachment[]
+  classifications AIClassification[]
+  replies         AIReply[]
+
+  @@unique([userId, messageId])
+  @@unique([accountId, mailboxId, uid])
+  @@index([userId, receivedAt(sort: Desc)])
+  @@index([userId, category])
+  @@index([accountId])
+  @@index([threadId])
+}
+
+model EmailRecipient {
+  id        String        @id @default(cuid())
+  emailId   String
+  email     Email         @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  type      RecipientType @default(TO)
+  name      String?
+  address   String
+
+  @@index([emailId])
+  @@index([address])
+}
+
+model EmailLabel {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  color     String   @default("#4F46E5")
+  createdAt DateTime @default(now())
+
+  @@unique([userId, name])
+}
+
+model EmailAttachment {
+  id          String   @id @default(cuid())
+  emailId     String
+  email       Email    @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  filename    String
+  contentType String
+  size        Int
+  contentId   String?
+  path        String?
+  createdAt   DateTime @default(now())
+
+  @@index([emailId])
+}
+
+model SyncState {
+  id           String     @id @default(cuid())
+  accountId    String
+  account      EmailAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  mailbox      String
+  lastUid      BigInt     @default(0)
+  uidValidity  BigInt     @default(0)
+  status       SyncStatus @default(DISCONNECTED)
+  errorMessage String?
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([accountId, mailbox])
+}
+
+model AIClassification {
+  id            String   @id @default(cuid())
+  emailId       String
+  email         Email    @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  category      Category
+  confidence    Float
+  model         String
+  promptVersion String
+  latencyMs     Int
+  tokenCount    Int      @default(0)
+  reasoning     String?
+  createdAt     DateTime @default(now())
+
+  @@index([emailId])
+  @@index([category])
+}
+
+model AIReply {
+  id             String   @id @default(cuid())
+  emailId        String
+  email          Email    @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  type           String   // 'professional' | 'friendly' | 'short'
+  suggestion     String   @db.Text
+  isRagGrounded  Boolean  @default(false)
+  contextSources String?  @db.Text // JSON metadata of retrieved vectors
+  model          String   @default("gemini-1.5-flash")
+  promptVersion  String   @default("v1.0")
+  latencyMs      Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  @@index([emailId])
+}
+
+model ProcessingJob {
+  id          String    @id @default(cuid())
+  jobName     String
+  payload     String    @db.Text // JSON string
+  status      JobStatus @default(PENDING)
+  attempts    Int       @default(0)
+  maxAttempts Int       @default(3)
+  errorReason String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([status])
+  @@index([jobName])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  entity    String
+  entityId  String?
+  details   String?  @db.Text
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+}

@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-08-24T16:34:48.521Z",
+  "evaluationType": "RAG vs Non-RAG Groundedness",
+  "testCasesCount": 2,
+  "results": [
+    {
+      "subject": "Custom Enterprise SLA Inquiry",
+      "withoutRag": {
+        "professional": "Thank you for your email regarding \"Custom Enterprise SLA Inquiry\". I have received your message and will follow up shortly.",
+        "latencyMs": 253,
+        "isGrounded": false
+      },
+      "withRag": {
+        "professional": "Thank you for your email regarding \"Custom Enterprise SLA Inquiry\". I have received your message and will follow up shortly.",
+        "latencyMs": 178,
+        "isGrounded": false,
+        "contextProvided": [
+          "Enterprise SLA Policy: Our platform provides a 99.99% uptime guarantee with 24/7 dedicated Slack channel support for enterprise customers."
+        ]
+      }
+    },
+    {
+      "subject": "Data Residency and GDPR Compliance",
+      "withoutRag": {
+        "professional": "Thank you for your email regarding \"Data Residency and GDPR Compliance\". I have received your message and will follow up shortly.",
+        "latencyMs": 79,
+        "isGrounded": false
+      },
+      "withRag": {
+        "professional": "Thank you for your email regarding \"Data Residency and GDPR Compliance\". I have received your message and will follow up shortly.",
+        "latencyMs": 192,
+        "isGrounded": false,
+        "contextProvided": [
+          "Compliance Overview: All data is encrypted at rest using AES-256 and stored in AWS US-East / EU-Central regions. Our platform is fully GDPR compliant."
+        ]
+      }
+    }
+  ]
+}

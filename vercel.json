@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "public": true,
+    "name": "ai-powered-realtime-email-management-infrastructure",
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "http://localhost:3000/api/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/frontend/$1"
+        }
+    ]
+}

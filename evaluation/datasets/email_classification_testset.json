@@ -1,0 +1,122 @@
+[
+  {
+    "id": "test-001",
+    "subject": "Re: Email Platform Demo Request",
+    "body": "Hi team, I saw your email platform demo online. We have a sales team of 15 BDRs and would love to see a live demo and discuss enterprise pricing. Are you available this Thursday at 2 PM EST?",
+    "groundTruthCategory": "INTERESTED"
+  },
+  {
+    "id": "test-002",
+    "subject": "Confirmed: Technical Discovery Call @ Fri Aug 28",
+    "body": "Your meeting has been scheduled with Alex Rivera. Google Meet link: https://meet.google.com/abc-defg-hij. Calendar invite attached.",
+    "groundTruthCategory": "MEETING_BOOKED"
+  },
+  {
+    "id": "test-003",
+    "subject": "Unsubscribe request - Please remove from list",
+    "body": "We are currently using a different email tool and have no budget for new software this year. Please remove me from your mailing list.",
+    "groundTruthCategory": "NOT_INTERESTED"
+  },
+  {
+    "id": "test-004",
+    "subject": "URGENT: Claim your $5,000 crypto payout now!",
+    "body": "Congratulations user! You have been selected to win 0.5 BTC. Click here immediately to connect your Web3 wallet and transfer funds.",
+    "groundTruthCategory": "SPAM"
+  },
+  {
+    "id": "test-005",
+    "subject": "Automatic reply: Out of Office until Sept 5",
+    "body": "Thank you for your message. I am currently out of the office on annual leave with no access to email. I will respond upon my return on September 5th. For urgent matters contact support@company.com.",
+    "groundTruthCategory": "OUT_OF_OFFICE"
+  },
+  {
+    "id": "test-006",
+    "subject": "Your monthly AWS invoice statement",
+    "body": "Your account billing statement for July 2026 is now available. Total amount charged: $142.50 to card ending in 4920.",
+    "groundTruthCategory": "UNCATEGORIZED"
+  },
+  {
+    "id": "test-007",
+    "subject": "Pricing question for Email API",
+    "body": "Hi there, we are building an outbound email platform and need to connect 50 IMAP accounts. Could you send over a quote for your API tier?",
+    "groundTruthCategory": "INTERESTED"
+  },
+  {
+    "id": "test-008",
+    "subject": "Accepted: Product Review Call",
+    "body": "Accepted: Product Review Call on Monday Aug 31 at 10am PST.",
+    "groundTruthCategory": "MEETING_BOOKED"
+  },
+  {
+    "id": "test-009",
+    "subject": "Not looking for new software right now",
+    "body": "Thanks for reaching out, but we just signed a 2-year agreement with another vendor. Do not email me again.",
+    "groundTruthCategory": "NOT_INTERESTED"
+  },
+  {
+    "id": "test-010",
+    "subject": "Fast online loan approval within 5 minutes!",
+    "body": "Need cash quick? Pre-approved loans up to $50,000 with 0% interest for the first 6 months. Apply now at http://fast-cash-loans.fake",
+    "groundTruthCategory": "SPAM"
+  },
+  {
+    "id": "test-011",
+    "subject": "Out of Office: Annual Conference",
+    "body": "I am attending the SaaStr Annual conference and will have delayed response times to emails until next Monday.",
+    "groundTruthCategory": "OUT_OF_OFFICE"
+  },
+  {
+    "id": "test-012",
+    "subject": "Can we set up a trial account?",
+    "body": "Hey team! Our SDR team is evaluating your platform to manage incoming campaign replies. Can we get access to a sandbox trial environment for 14 days?",
+    "groundTruthCategory": "INTERESTED"
+  },
+  {
+    "id": "test-013",
+    "subject": "Cal.com Booking Confirmation: Intro Call",
+    "body": "A new event has been booked with Sarah Jenkins on August 29, 2026 at 3:00 PM UTC.",
+    "groundTruthCategory": "MEETING_BOOKED"
+  },
+  {
+    "id": "test-014",
+    "subject": "Pass on this opportunity",
+    "body": "Hi John, thanks for sending the presentation over. We reviewed it internally but decided not to proceed. Best of luck.",
+    "groundTruthCategory": "NOT_INTERESTED"
+  },
+  {
+    "id": "test-015",
+    "subject": "Cheap SEO backlinks rank #1 on Google",
+    "body": "Buy 10,000 high DA backlinks for only $99. Guaranteed first page rankings in 30 days or money back guarantee.",
+    "groundTruthCategory": "SPAM"
+  },
+  {
+    "id": "test-016",
+    "subject": "Auto-Reply: On Maternity Leave",
+    "body": "I am currently on parental leave returning in November. Please direct all sales requests to sales@company.internal.",
+    "groundTruthCategory": "OUT_OF_OFFICE"
+  },
+  {
+    "id": "test-017",
+    "subject": "Security Alert: New sign-in from Chrome on Linux",
+    "body": "Your account was accessed from a new device in San Francisco, CA. If this was you, no action is needed.",
+    "groundTruthCategory": "UNCATEGORIZED"
+  },
+  {
+    "id": "test-018",
+    "subject": "Would love to see a product demo next week",
+    "body": "Hello, our VP of Sales suggested I reach out to check out your platform. We want to streamline our email sync and automated categorizations. Do you have time Wednesday morning?",
+    "groundTruthCategory": "INTERESTED"
+  },
+  {
+    "id": "test-019",
+    "subject": "Meeting Invite: Architecture Sync",
+    "body": "You've been invited to Email Infrastructure Architecture Sync. Time: Aug 30, 2026 11:00 AM EST.",
+    "groundTruthCategory": "MEETING_BOOKED"
+  },
+  {
+    "id": "test-020",
+    "subject": "Please remove our company from your database",
+    "body": "Unsubscribe. We do not accept cold emails.",
+    "groundTruthCategory": "NOT_INTERESTED"
+  }
+]

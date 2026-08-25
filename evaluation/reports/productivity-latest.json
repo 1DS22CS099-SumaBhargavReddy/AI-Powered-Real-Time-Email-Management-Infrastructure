@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-08-25T01:18:41.779Z",
+  "benchmarkType": "Productivity Impact: Manual vs AI-Assisted Categorization",
+  "sampleSize": 5,
+  "totalBaselineManualSeconds": 155,
+  "totalAIAssistedSeconds": 41.21,
+  "timeReductionPercentage": 73.41,
+  "timeReductionClaimVerified": "73.41% time reduction achieved",
+  "sampleDetails": [
+    {
+      "id": "prod-001",
+      "subject": "Inquiry regarding Enterprise API tiers",
+      "baselineManualSec": 45,
+      "aiLatencySec": 0.72,
+      "humanReviewSec": 8,
+      "totalAssistedSec": 8.72,
+      "timeSavedSec": 36.28,
+      "predictedCategory": "INTERESTED"
+    },
+    {
+      "id": "prod-002",
+      "subject": "Re: Meeting Invitation for Demo",
+      "baselineManualSec": 35,
+      "aiLatencySec": 0.08,
+      "humanReviewSec": 8,
+      "totalAssistedSec": 8.08,
+      "timeSavedSec": 26.92,
+      "predictedCategory": "MEETING_BOOKED"
+    },
+    {
+      "id": "prod-003",
+      "subject": "Out of office auto-reply",
+      "baselineManualSec": 25,
+      "aiLatencySec": 0.17,
+      "humanReviewSec": 8,
+      "totalAssistedSec": 8.17,
+      "timeSavedSec": 16.83,
+      "predictedCategory": "OUT_OF_OFFICE"
+    },
+    {
+      "id": "prod-004",
+      "subject": "Unsubscribe from newsletter",
+      "baselineManualSec": 30,
+      "aiLatencySec": 0.08,
+      "humanReviewSec": 8,
+      "totalAssistedSec": 8.08,
+      "timeSavedSec": 21.92,
+      "predictedCategory": "INTERESTED"
+    },
+    {
+      "id": "prod-005",
+      "subject": "Claim $10,000 gift card immediately",
+      "baselineManualSec": 20,
+      "aiLatencySec": 0.16,
+      "humanReviewSec": 8,
+      "totalAssistedSec": 8.16,
+      "timeSavedSec": 11.84,
+      "predictedCategory": "SPAM"
+    }
+  ]
+}

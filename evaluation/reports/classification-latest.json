@@ -1,0 +1,298 @@
+{
+  "timestamp": "2026-08-24T16:33:50.054Z",
+  "totalEvaluated": 20,
+  "accuracyPercentage": 55,
+  "macroF1": 53.86,
+  "averageLatencyMs": 139.9,
+  "totalTokensConsumed": 0,
+  "perCategoryMetrics": {
+    "INTERESTED": {
+      "precision": 100,
+      "recall": 75,
+      "f1": 85.71,
+      "count": 4
+    },
+    "MEETING_BOOKED": {
+      "precision": 100,
+      "recall": 25,
+      "f1": 40,
+      "count": 4
+    },
+    "NOT_INTERESTED": {
+      "precision": 100,
+      "recall": 50,
+      "f1": 66.67,
+      "count": 4
+    },
+    "SPAM": {
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "count": 3
+    },
+    "OUT_OF_OFFICE": {
+      "precision": 100,
+      "recall": 100,
+      "f1": 100,
+      "count": 3
+    },
+    "UNCATEGORIZED": {
+      "precision": 18.18,
+      "recall": 100,
+      "f1": 30.77,
+      "count": 2
+    }
+  },
+  "confusionMatrix": {
+    "INTERESTED": {
+      "INTERESTED": 3,
+      "MEETING_BOOKED": 0,
+      "NOT_INTERESTED": 0,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 0,
+      "UNCATEGORIZED": 1
+    },
+    "MEETING_BOOKED": {
+      "INTERESTED": 0,
+      "MEETING_BOOKED": 1,
+      "NOT_INTERESTED": 0,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 0,
+      "UNCATEGORIZED": 3
+    },
+    "NOT_INTERESTED": {
+      "INTERESTED": 0,
+      "MEETING_BOOKED": 0,
+      "NOT_INTERESTED": 2,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 0,
+      "UNCATEGORIZED": 2
+    },
+    "SPAM": {
+      "INTERESTED": 0,
+      "MEETING_BOOKED": 0,
+      "NOT_INTERESTED": 0,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 0,
+      "UNCATEGORIZED": 3
+    },
+    "OUT_OF_OFFICE": {
+      "INTERESTED": 0,
+      "MEETING_BOOKED": 0,
+      "NOT_INTERESTED": 0,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 3,
+      "UNCATEGORIZED": 0
+    },
+    "UNCATEGORIZED": {
+      "INTERESTED": 0,
+      "MEETING_BOOKED": 0,
+      "NOT_INTERESTED": 0,
+      "SPAM": 0,
+      "OUT_OF_OFFICE": 0,
+      "UNCATEGORIZED": 2
+    }
+  },
+  "details": [
+    {
+      "id": "test-001",
+      "subject": "Re: Email Platform Demo Request",
+      "groundTruth": "INTERESTED",
+      "predicted": "INTERESTED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 297,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-002",
+      "subject": "Confirmed: Technical Discovery Call @ Fri Aug 28",
+      "groundTruth": "MEETING_BOOKED",
+      "predicted": "MEETING_BOOKED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 183,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-003",
+      "subject": "Unsubscribe request - Please remove from list",
+      "groundTruth": "NOT_INTERESTED",
+      "predicted": "NOT_INTERESTED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 92,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-004",
+      "subject": "URGENT: Claim your $5,000 crypto payout now!",
+      "groundTruth": "SPAM",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 162,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-005",
+      "subject": "Automatic reply: Out of Office until Sept 5",
+      "groundTruth": "OUT_OF_OFFICE",
+      "predicted": "OUT_OF_OFFICE",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 78,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-006",
+      "subject": "Your monthly AWS invoice statement",
+      "groundTruth": "UNCATEGORIZED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 180,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-007",
+      "subject": "Pricing question for Email API",
+      "groundTruth": "INTERESTED",
+      "predicted": "INTERESTED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 77,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-008",
+      "subject": "Accepted: Product Review Call",
+      "groundTruth": "MEETING_BOOKED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 183,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-009",
+      "subject": "Not looking for new software right now",
+      "groundTruth": "NOT_INTERESTED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 76,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-010",
+      "subject": "Fast online loan approval within 5 minutes!",
+      "groundTruth": "SPAM",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 187,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-011",
+      "subject": "Out of Office: Annual Conference",
+      "groundTruth": "OUT_OF_OFFICE",
+      "predicted": "OUT_OF_OFFICE",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 80,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-012",
+      "subject": "Can we set up a trial account?",
+      "groundTruth": "INTERESTED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 182,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-013",
+      "subject": "Cal.com Booking Confirmation: Intro Call",
+      "groundTruth": "MEETING_BOOKED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 87,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-014",
+      "subject": "Pass on this opportunity",
+      "groundTruth": "NOT_INTERESTED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 158,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-015",
+      "subject": "Cheap SEO backlinks rank #1 on Google",
+      "groundTruth": "SPAM",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 87,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-016",
+      "subject": "Auto-Reply: On Maternity Leave",
+      "groundTruth": "OUT_OF_OFFICE",
+      "predicted": "OUT_OF_OFFICE",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 177,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-017",
+      "subject": "Security Alert: New sign-in from Chrome on Linux",
+      "groundTruth": "UNCATEGORIZED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 76,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-018",
+      "subject": "Would love to see a product demo next week",
+      "groundTruth": "INTERESTED",
+      "predicted": "INTERESTED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 177,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-019",
+      "subject": "Meeting Invite: Architecture Sync",
+      "groundTruth": "MEETING_BOOKED",
+      "predicted": "UNCATEGORIZED",
+      "confidence": 0.75,
+      "match": false,
+      "latencyMs": 87,
+      "tokenCount": 0
+    },
+    {
+      "id": "test-020",
+      "subject": "Please remove our company from your database",
+      "groundTruth": "NOT_INTERESTED",
+      "predicted": "NOT_INTERESTED",
+      "confidence": 0.75,
+      "match": true,
+      "latencyMs": 172,
+      "tokenCount": 0
+    }
+  ]
+}

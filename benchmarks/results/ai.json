@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-08-24T16:23:46.647Z",
+  "benchmark": "Gemini AI Inference Benchmark",
+  "totalIterations": 5,
+  "averageLatencyMs": 187.6,
+  "latencies": [
+    414,
+    101,
+    167,
+    82,
+    174
+  ]
+}
