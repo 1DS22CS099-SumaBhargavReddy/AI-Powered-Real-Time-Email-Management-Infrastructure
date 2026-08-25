@@ -12,11 +12,6 @@ services:
         fromDatabase:
           name: email-db
           property: connectionString
-      - key: REDIS_URL
-        fromService:
-          type: redis
-          name: email-redis
-          property: connectionString
       - key: GEMINI_API_KEY
         sync: false
       - key: JWT_SECRET
@@ -27,5 +22,5 @@ services:
 databases:
   - name: email-db
     databaseName: email_db
-    user: postgres
+    user: email_user
     plan: free
