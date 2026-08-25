@@ -31,6 +31,7 @@ A production-grade, distributed, AI-powered email management and intelligence pl
 ```
 
 ---
+<img width="1891" height="853" alt="image" src="https://github.com/user-attachments/assets/a8645e6f-99df-44ca-9075-492b6650f031" />
 
 ## 2. Technology Stack & Design Decisions
 
