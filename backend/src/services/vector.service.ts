@@ -89,7 +89,7 @@ export class VectorService {
     similarityThreshold = 0.5
   ): Promise<ContextChunk[]> {
     try {
-      const results = await this.client.search(this.collectionName, {
+      const results = await (this.client as any).search(this.collectionName, {
         vector: queryVector,
         limit: topK,
         score_threshold: similarityThreshold,
