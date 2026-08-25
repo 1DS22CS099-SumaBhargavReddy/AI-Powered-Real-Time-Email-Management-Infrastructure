@@ -7,8 +7,8 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-  PORT: z.string().transform((val) => parseInt(val, 10)).default('3000'),
-  DATABASE_URL: z.string().min(1, 'DATABASE_URL is required'),
+  PORT: z.union([z.string(), z.number()]).transform((val) => (typeof val === 'number' ? val : parseInt(val, 10))).default(3000),
+  DATABASE_URL: z.string().default('postgresql://postgres:password@localhost:5432/email_db?schema=public'),
   REDIS_URL: z.string().default('redis://localhost:6379'),
   QDRANT_URL: z.string().default('http://localhost:6333'),
   ELASTICSEARCH_URL: z.string().default('http://localhost:9200'),
