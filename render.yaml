@@ -1,7 +1,7 @@
 services:
   - type: web
     name: email-management-backend
-    env: node
+    runtime: node
     rootDir: backend
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npm start
